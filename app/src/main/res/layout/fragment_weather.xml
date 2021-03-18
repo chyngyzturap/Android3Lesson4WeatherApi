@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.weather.WeatherFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/ic_graphic" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5"
+            android:background="@drawable/bg_ll"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textDate"
+                android:text="@string/textDate"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/textDate" />
+
+            <TextView
+                android:id="@+id/textCity"
+                android:text="@string/textCity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:drawableEndCompat="@drawable/ic_facebook_places"
+                style="@style/textCity" />
+
+
+            <ImageView
+                android:id="@+id/imageCloud"
+                android:src="@drawable/ic_vector"
+                app:layout_constraintBottom_toTopOf="@id/imageHumidity"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textCelsiusAmount"
+                app:layout_constraintTop_toBottomOf="@id/textDate"
+                style="@style/StyleImageCloude" />
+
+
+            <TextView
+                android:id="@+id/textCloud"
+                android:text="@string/textCloude"
+                app:layout_constraintEnd_toEndOf="@+id/imageCloud"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textCelsiusAmount"
+                app:layout_constraintStart_toStartOf="@+id/imageCloud"
+                app:layout_constraintTop_toBottomOf="@id/imageCloud"
+                style="@style/StyleTextCloude" />
+
+            <TextView
+                android:id="@+id/textCelsiusAmount"
+                android:text="@string/textCelsiusAmount"
+                app:layout_constraintBottom_toBottomOf="@+id/imageCloud"
+                app:layout_constraintLeft_toRightOf="@id/imageCloud"
+                app:layout_constraintRight_toLeftOf="@id/textCelsiusUp"
+                app:layout_constraintTop_toTopOf="@+id/imageCloud"
+                style="@style/StyleTextCelsiusAmount" />
+
+
+            <TextView
+                android:id="@+id/textCelsius"
+                android:text="°C"
+                app:layout_constraintLeft_toRightOf="@id/textCelsiusAmount"
+                app:layout_constraintTop_toTopOf="@+id/textCelsiusAmount"
+                style="@style/StyleTextCelsius" />
+
+            <TextView
+                android:id="@+id/textCelsiusUp"
+                android:text="35°C"
+                app:layout_constraintBottom_toTopOf="@id/textCelsiusDown"
+                app:layout_constraintLeft_toRightOf="@id/textCelsiusAmount"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textCelsiusAmount"
+                style="@style/StyleTextCelsiusUp" />
+
+            <ImageView
+                android:id="@+id/arrowUp"
+                android:layout_marginTop="4dp"
+                android:src="@drawable/ic_arrow_up"
+                app:layout_constraintLeft_toRightOf="@id/textCelsiusUp"
+                app:layout_constraintTop_toTopOf="@+id/textCelsiusUp"
+                style="@style/StyleWrapContent" />
+
+            <TextView
+                android:id="@+id/textCelsiusDown"
+                android:text="27°C"
+                app:layout_constraintBottom_toBottomOf="@+id/textCelsiusAmount"
+                app:layout_constraintLeft_toRightOf="@id/textCelsiusAmount"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textCelsiusUp"
+                style="@style/StyleCelsiusDown" />
+
+
+            <ImageView
+                android:id="@+id/arrowDown"
+                style="@style/StyleWrapContent"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintBottom_toBottomOf="@+id/textCelsiusDown"
+                app:layout_constraintLeft_toRightOf="@id/textCelsiusDown"
+                app:layout_constraintStart_toEndOf="@+id/textCelsiusDown"
+                app:layout_constraintTop_toTopOf="@+id/textCelsiusDown"
+                app:layout_constraintVertical_bias="0.727" />
+
+
+            <ImageView
+                android:id="@+id/imageHumidity"
+                style="@style/StyleWrapContent"
+                android:src="@drawable/ic_humidity"
+                app:layout_constraintBottom_toTopOf="@+id/imageSunRise"
+                app:layout_constraintEnd_toEndOf="@+id/imageCloud"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/imagePressure"
+                app:layout_constraintStart_toStartOf="@+id/imageCloud"
+                app:layout_constraintTop_toBottomOf="@+id/imageCloud" />
+
+            <TextView
+                android:id="@+id/textPercentHumidity"
+                android:text="49%"
+                app:layout_constraintEnd_toEndOf="@+id/imageHumidity"
+                app:layout_constraintStart_toStartOf="@+id/imageHumidity"
+                app:layout_constraintTop_toBottomOf="@+id/imageHumidity"
+                style="@style/StyleTextPercentHumidity" />
+
+            <TextView
+                android:id="@+id/textHumidity"
+                android:text="Humidity"
+                app:layout_constraintEnd_toEndOf="@+id/textPercentHumidity"
+                app:layout_constraintStart_toStartOf="@+id/textPercentHumidity"
+                app:layout_constraintTop_toBottomOf="@+id/textPercentHumidity"
+                style="@style/StyleTextHumidity" />
+
+            <ImageView
+                android:id="@+id/imagePressure"
+                style="@style/StyleWrapContent"
+                android:src="@drawable/ic_pressure"
+                app:layout_constraintEnd_toEndOf="@+id/textCelsiusAmount"
+                app:layout_constraintLeft_toRightOf="@id/imageHumidity"
+                app:layout_constraintRight_toLeftOf="@id/imageWind"
+                app:layout_constraintStart_toStartOf="@+id/textCelsiusAmount"
+                app:layout_constraintTop_toTopOf="@id/imageHumidity" />
+
+            <TextView
+                android:id="@+id/textMBarPressure"
+                android:text="1,007mBar"
+                app:layout_constraintEnd_toEndOf="@+id/imagePressure"
+                app:layout_constraintLeft_toRightOf="@id/textPercentHumidity"
+                app:layout_constraintRight_toLeftOf="@id/textKMHWind"
+                app:layout_constraintStart_toStartOf="@+id/imagePressure"
+                app:layout_constraintTop_toBottomOf="@id/imagePressure"
+                app:layout_constraintTop_toTopOf="@id/textPercentHumidity"
+                style="@style/StyleTextMBarPressure" />
+
+            <TextView
+                android:id="@+id/textPressure"
+                android:text="Pressure"
+                app:layout_constraintEnd_toEndOf="@+id/textMBarPressure"
+                app:layout_constraintLeft_toRightOf="@id/textHumidity"
+                app:layout_constraintRight_toLeftOf="@id/textWind"
+                app:layout_constraintStart_toStartOf="@+id/textMBarPressure"
+                app:layout_constraintTop_toTopOf="@+id/textHumidity"
+                style="@style/StyleTextPressure" />
+
+            <TextView
+                android:id="@+id/textWind"
+                style="@style/StyleWrapContent"
+                android:text="Wind"
+                android:textSize="12sp"
+                android:fontFamily="@font/barlow_regular"
+                app:layout_constraintEnd_toEndOf="@+id/textKMHWind"
+                app:layout_constraintLeft_toRightOf="@id/textPressure"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textKMHWind"
+                app:layout_constraintTop_toTopOf="@+id/textPressure" />
+
+
+            <ImageView
+                android:id="@+id/imageWind"
+                style="@style/StyleWrapContent"
+                android:src="@drawable/ic__wind"
+                app:layout_constraintEnd_toEndOf="@+id/textCelsiusUp"
+                app:layout_constraintLeft_toRightOf="@id/imagePressure"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textCelsiusUp"
+                app:layout_constraintTop_toTopOf="@id/imagePressure" />
+
+            <TextView
+                android:id="@+id/textKMHWind"
+                android:text="23km/h"
+                app:layout_constraintEnd_toEndOf="@+id/imageWind"
+                app:layout_constraintLeft_toRightOf="@id/textMBarPressure"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/imageWind"
+                app:layout_constraintTop_toTopOf="@+id/textMBarPressure"
+                style="@style/StyleTextKNWind" />
+
+
+
+            <ImageView
+                android:id="@+id/imageSunRise"
+                style="@style/StyleWrapContent"
+                android:src="@drawable/ic_sunrise"
+                app:layout_constraintTop_toBottomOf="@id/imageHumidity"
+                app:layout_constraintBottom_toTopOf="@id/recyclerWeather"
+                app:layout_constraintEnd_toEndOf="@+id/textHumidity"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textHumidity" />
+
+
+            <TextView
+                android:id="@+id/textSunRiseTime"
+                android:text="6:03AM"
+                app:layout_constraintEnd_toEndOf="@+id/imageSunRise"
+                app:layout_constraintStart_toStartOf="@+id/imageSunRise"
+                app:layout_constraintTop_toBottomOf="@+id/imageSunRise"
+                style="@style/StyleTextSunRise" />
+
+            <TextView
+                android:id="@+id/textSunRise"
+                android:text="Sunrise"
+                style="@style/StyleWrapContent"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/textSunRiseTime"
+                app:layout_constraintStart_toStartOf="@+id/textSunRiseTime"
+                app:layout_constraintTop_toBottomOf="@+id/textSunRiseTime" />
+
+            <ImageView
+                android:id="@+id/imageSunSet"
+                android:src="@drawable/ic_sun_rise"
+                style="@style/StyleWrapContent"
+                app:layout_constraintEnd_toEndOf="@+id/textPressure"
+                app:layout_constraintStart_toStartOf="@+id/textPressure"
+                app:layout_constraintTop_toTopOf="@+id/imageSunRise" />
+
+            <TextView
+                android:id="@+id/textSunSetTime"
+                android:text="7:05PM"
+                app:layout_constraintTop_toTopOf="@id/textSunRiseTime"
+                app:layout_constraintEnd_toEndOf="@+id/imageSunSet"
+                app:layout_constraintStart_toStartOf="@+id/imageSunSet"
+                tools:layout_editor_absoluteY="268dp"
+                style="@style/StyleTextSunset" />
+
+            <TextView
+                android:id="@+id/textSunset"
+                android:text="Sunset"
+                style="@style/StyleWrapContent"
+                android:textSize="12sp"
+                android:fontFamily="@font/barlow_regular"
+                app:layout_constraintEnd_toEndOf="@+id/textSunSetTime"
+                app:layout_constraintStart_toStartOf="@+id/textSunSetTime"
+                app:layout_constraintTop_toTopOf="@+id/textSunRise" />
+
+
+            <ImageView
+                android:id="@+id/imageClock"
+                android:src="@drawable/ic_sand_clock"
+                style="@style/StyleWrapContent"
+                app:layout_constraintEnd_toEndOf="@+id/textWind"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textWind"
+                app:layout_constraintTop_toTopOf="@+id/imageSunSet" />
+
+            <TextView
+                android:id="@+id/textClock"
+                android:text="13h1m"
+                app:layout_constraintEnd_toEndOf="@+id/imageClock"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/imageClock"
+                app:layout_constraintTop_toTopOf="@+id/textSunSetTime"
+                style="@style/StyleTextClock" />
+
+            <TextView
+                android:id="@+id/textDayTime"
+                android:text="DayTime"
+                app:layout_constraintEnd_toEndOf="@+id/textClock"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textClock"
+                app:layout_constraintTop_toTopOf="@+id/textSunset"
+                style="@style/StyleTextDaytime" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerWeather"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
